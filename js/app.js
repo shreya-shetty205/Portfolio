@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNavigation();
   initProjectModals();
-  fetchGitHubRepos();
   initContactForm();
   syncConfigurableLinks();
 });
@@ -233,60 +232,7 @@ function initProjectModals() {
   });
 }
 
-/* ==========================================================================
-   5. Live GitHub Repositories Showcase
-   ========================================================================== */
-async function fetchGitHubRepos() {
-  const container = document.getElementById('githubReposContainer');
-  if (!container) return;
 
-  const username = 'shreya-shetty205';
-
-  try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-    if (!response.ok) {
-      throw new Error(`GitHub API status: ${response.status}`);
-    }
-    const repos = await response.json();
-
-    if (Array.isArray(repos) && repos.length > 0) {
-      container.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-card">
-          <div>
-            <div class="repo-header">
-              <span class="repo-name">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                ${escapeHtml(repo.name)}
-              </span>
-              <span style="font-size: 0.7rem; padding: 2px 6px; border: 1px solid var(--border-subtle); border-radius: var(--radius-full); color: var(--text-muted);">
-                ${repo.private ? 'Private' : 'Public'}
-              </span>
-            </div>
-            <p class="repo-desc">${repo.description ? escapeHtml(repo.description) : 'Technical repository and development work by Shreya Shetty.'}</p>
-          </div>
-          <div class="repo-meta">
-            ${repo.language ? `
-              <span class="repo-lang">
-                <span class="lang-dot"></span>
-                ${escapeHtml(repo.language)}
-              </span>
-            ` : ''}
-            <span style="display: flex; align-items: center; gap: 4px;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              ${repo.stargazers_count || 0}
-            </span>
-            <span style="display: flex; align-items: center; gap: 4px;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
-              ${repo.forks_count || 0}
-            </span>
-          </div>
-        </a>
-      `).join('');
-    }
-  } catch (err) {
-    console.info("GitHub API fetch completed with local fallback state.");
-  }
-}
 
 /* ==========================================================================
    6. Contact Form & Clipboard Interactions
