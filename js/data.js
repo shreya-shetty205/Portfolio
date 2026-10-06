@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * SHREYA SHETTY - PORTFOLIO CONFIGURATION & DATA STORE
- * Source of Truth: SHREYA_SHETTY_Resume(5).pdf
+ * Source of Truth: SHREYA SHETTY Resume (Latest)
  * ==========================================================================
  */
 
@@ -33,80 +33,67 @@ const portfolioData = {
     name: "Shreya Shetty",
     titles: [
       "Software Engineer",
-      "AI Engineer",
-      "QA & Testing Specialist",
-      "Full-Stack Developer"
+      "Full-Stack Developer",
+      "QA & API Testing Specialist",
+      "AI Engineer"
     ],
-    primaryTitle: "Software Engineer | AI Engineer | QA & Testing | Full-Stack Developer",
-    heroIntro: "Enthusiastic and dedicated Computer Science graduate with hands-on experience in software development, testing, and application workflows, web technologies, databases, APIs, and machine learning.",
-    aboutIntro: "Enthusiastic and dedicated individual with hands-on experience in software development, testing, and application workflows. Strong in analytical thinking, problem-solving, and teamwork, with knowledge of web technologies, databases, APIs, and software development practices. Eager to learn new technologies, contribute to real-world projects, and grow in a dynamic technology environment.",
-    location: "Mangalore, Karnataka",
+    primaryTitle: "Software Engineer",
+    summary: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration. Skilled in Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS. Experienced in developing application workflows, debugging, API testing, and collaborating on production projects.",
+    heroIntro: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration across Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS.",
+    aboutIntro: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration. Skilled in Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS. Experienced in developing application workflows, debugging, API testing, and collaborating on production projects.",
+    location: "Bengaluru, Karnataka",
     email: "shreyashetty205@gmail.com",
     phone: "+91 7012825611",
     cgpa: "9.0"
   },
 
-  // Skills Matrix
+  // Skills Matrix directly aligned with Resume
   skills: {
     programming: [
       { name: "Python" },
-      { name: "C" }
+      { name: "C" },
+      { name: "JavaScript" }
     ],
-    frontend: [
-      { name: "HTML" },
-      { name: "CSS" },
-      { name: "JavaScript" },
-      { name: "React.js" }
-    ],
-    backend: [
+    webDevelopment: [
+      { name: "HTML5" },
+      { name: "CSS3" },
+      { name: "React.js" },
       { name: "Node.js" },
       { name: "Express.js" }
     ],
-    databases: [
+    databaseManagement: [
       { name: "MySQL" },
       { name: "MongoDB" },
       { name: "Supabase" }
     ],
     testingAndApis: [
-      { name: "Postman" },
-      { name: "API Testing" },
-      { name: "REST APIs" },
+      { name: "RESTful APIs" },
+      { name: "API Development" },
       { name: "API Integration" },
-      { name: "Debugging" }
-    ],
-    aiMl: [
-      { name: "Machine Learning" },
-      { name: "KNN" },
-      { name: "RNN" },
-      { name: "LSTM" }
-    ],
-    tools: [
-      { name: "GitHub" },
-      { name: "Visual Studio Code" },
-      { name: "MS Excel" },
-      { name: "Canva" },
-      { name: "Vercel" },
-      { name: "Render" }
+      { name: "Postman" }
     ],
     cloudDevOps: [
+      { name: "AWS (EC2, S3)" },
       { name: "Basic Cloud Concepts" },
       { name: "Basic CI/CD" }
+    ],
+    tools: [
+      { name: "Git" },
+      { name: "GitHub" },
+      { name: "Visual Studio Code" },
+      { name: "Postman" },
+      { name: "Vercel" },
+      { name: "Render" },
+      { name: "Claude Code" },
+      { name: "Cursor" }
     ],
     operatingSystems: [
       { name: "Windows" },
       { name: "Linux" }
-    ],
-    softSkills: [
-      "Communication Skills",
-      "Leadership",
-      "Team Collaboration",
-      "Time Management",
-      "Problem Solving",
-      "Analytical Thinking"
     ]
   },
 
-  // 3 Equal-Sized, Consistent Projects
+  // 3 Equal-Sized, Consistent Projects from Resume
   projects: [
     {
       id: "microdegree-arena",
@@ -116,13 +103,10 @@ const portfolioData = {
       tags: ["React.js", "Node.js", "Express.js", "Supabase", "REST APIs", "Postman"],
       shortDescription: "Learning, assessment, certification, and placement management platform designed to manage student workflows through a centralized system.",
       highlights: [
-        "Assessment workflows",
-        "Practical task workflows",
-        "Student synchronization and track mapping",
-        "Placement and interview workflows",
-        "Candidate evaluation",
-        "Certification workflows",
-        "End-to-end testing"
+        "Developed features for assessments, tasks, placements, interviews, and certifications.",
+        "Developed and validated certification workflows including MCQ assessments, retakes, task evaluation, and admin approval.",
+        "Implemented automated certificate generation with unique IDs and secure storage.",
+        "Tested end-to-end workflows and performed functional and API testing."
       ],
       workflow: [
         "Student",
@@ -142,72 +126,68 @@ const portfolioData = {
       tags: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "REST APIs", "Postman"],
       shortDescription: "Full-stack application for dietary tracking, allergy detection, and personalized health insights.",
       highlights: [
-        "Full-stack development",
-        "REST API development",
-        "JWT authentication",
-        "Meal tracking",
-        "Allergy detection",
-        "API testing and debugging"
+        "Developed a full-stack health tracking application using React.js, Node.js, Express.js, and MongoDB.",
+        "Implemented REST APIs, JWT authentication, meal tracking, allergy detection, and personalized health insights.",
+        "Tested APIs using Postman and worked on debugging, API integration, and responsive UI."
       ],
       github: GITHUB_URL
     },
     {
       id: "network-anomaly-detection",
-      title: "Network Anomaly Detection using Machine Learning",
+      title: "Network Anomaly Detection using ML",
       category: "AI & Machine Learning",
       image: networkAnomalyImage,
       award: "Best Paper Award – ICRICS 2026",
       tags: ["Python", "KNN", "RNN", "LSTM", "Scapy"],
       shortDescription: "Machine learning-based system for detecting abnormal network activity using real-time packet capture.",
       highlights: [
-        "Real-time anomaly detection",
-        "Network packet capture using Scapy",
-        "KNN, RNN and LSTM models",
-        "Model performance evaluation"
+        "Developed a real-time anomaly detection system using KNN, RNN, and LSTM.",
+        "Implemented live packet capture using Scapy for network attack detection.",
+        "Evaluated models using accuracy, precision, recall, and F1-score."
       ],
       github: GITHUB_URL
     }
   ],
 
-  // Work Experience
+  // Work Experience from Resume
   experiences: [
     {
-      role: "Software Engineer Intern",
+      role: "Software Engineer",
       company: "MicroDegree Education Pvt Ltd",
       association: "Mangalore",
-      period: "Duration: 8 months",
-      summary: "Focused on software development, application workflows, and testing for centralized educational platforms.",
+      period: "Feb 2026 – Oct 2026",
+      duration: "8 months",
+      summary: "Developed and implemented features for MicroDegree Arena, improving certification and placement workflows.",
       highlights: [
-        "Contributed to software development and reusable assessment and task workflows.",
-        "Collaborated on student synchronization, track mapping, and candidate evaluation.",
-        "Executed end-to-end testing and validation across core system features."
+        "Developed and implemented features for MicroDegree Arena, improving certification and placement workflows.",
+        "Developed the Certification Overflow feature and enhanced the Placement Drive module.",
+        "Contributed to E-Learning platform improvements, including course content organization and learner-focused features."
       ]
     },
     {
       role: "Full Stack Web Development (MERN) Intern",
       company: "SuprMentr Technologies",
       association: "In association with NASSCOM Future Skills",
-      period: "Duration: 4 months",
-      summary: "Four-month full-stack web development internship building web applications with the MERN stack.",
+      period: "Feb 2026 – May 2026",
+      duration: "4 months",
+      summary: "Completed a 4-month internship with hands-on experience in frontend, backend, APIs, databases, testing, and debugging.",
       highlights: [
-        "Developed web application components using React.js, Node.js, Express.js, and MongoDB.",
-        "Implemented RESTful APIs, user authentication, and database schemas.",
-        "Collaborated in agile development cycles, code reviews, and API debugging."
+        "Completed a 4-month internship with hands-on experience in frontend, backend, APIs, databases, testing, and debugging."
       ]
     }
   ],
 
-  // Education
+  // Education from Resume
   education: [
     {
       degree: "B.E. Computer Science and Engineering",
       institution: "Srinivas Institute of Technology, Mangalore",
-      score: "CGPA: 9.0",
+      score: "9.0 CGPA",
       period: "2022 – 2026",
-      details: "Comprehensive coursework in Data Structures, Algorithms, Software Engineering, Database Systems, Computer Networks, and Machine Learning."
+      details: "Comprehensive academic background in Computer Science and Engineering with strong focus on Software Engineering, Databases, Web Technologies, and Machine Learning."
     },
     {
-      degree: "Pre-University (PCMC)",
+      degree: "Pre-University",
       institution: "Parijnan PU College, Mangalore",
       score: "95%",
       period: "2020 – 2022",
@@ -215,17 +195,12 @@ const portfolioData = {
     }
   ],
 
-  // Certifications
+  // Certifications from Resume
   certifications: [
     {
       title: "Python Certification",
-      issuer: "MicroDegree Education Pvt. Ltd",
+      issuer: "MicroDegree Education Pvt. Ltd.",
       badge: "MicroDegree Certified"
-    },
-    {
-      title: "IT Specialist – Cloud Computing",
-      issuer: "Certiport",
-      badge: "Certiport Certified"
     },
     {
       title: "MySQL Certification",
@@ -233,7 +208,12 @@ const portfolioData = {
       badge: "MicroDegree Certified"
     },
     {
-      title: "No SQL-MongoDB",
+      title: "IT Specialist - Cloud Computing",
+      issuer: "Certiport",
+      badge: "Certiport Certified"
+    },
+    {
+      title: "NoSQL – MongoDB",
       issuer: "IBMCE",
       badge: "IBMCE Certified"
     }
