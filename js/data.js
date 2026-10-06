@@ -175,7 +175,7 @@ const portfolioData = {
       role: "Software Engineer Intern",
       company: "MicroDegree Education Pvt Ltd",
       association: "Mangalore",
-      period: "Internship",
+      period: "Duration: 8 months",
       summary: "Focused on software development, application workflows, and testing for centralized educational platforms.",
       highlights: [
         "Contributed to software development and reusable assessment and task workflows.",
@@ -218,9 +218,9 @@ const portfolioData = {
   // Certifications
   certifications: [
     {
-      title: "No SQL-MongoDB",
-      issuer: "IBMCE",
-      badge: "IBMCE Certified"
+      title: "Python Certification",
+      issuer: "MicroDegree Education Pvt. Ltd",
+      badge: "MicroDegree Certified"
     },
     {
       title: "IT Specialist – Cloud Computing",
@@ -228,9 +228,14 @@ const portfolioData = {
       badge: "Certiport Certified"
     },
     {
-      title: "Database Using SQL Certification",
-      issuer: "Ethnotech Academy",
-      badge: "Ethnotech Certified"
+      title: "MySQL Certification",
+      issuer: "MicroDegree Education Pvt. Ltd.",
+      badge: "MicroDegree Certified"
+    },
+    {
+      title: "No SQL-MongoDB",
+      issuer: "IBMCE",
+      badge: "IBMCE Certified"
     }
   ],
 
