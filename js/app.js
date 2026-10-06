@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initTheme() {
   const themeToggleBtn = document.getElementById('themeToggle');
-  const storedTheme = localStorage.getItem('shreya_theme');
+  const storedTheme = localStorage.getItem('shreya_theme_v2');
   
   const currentTheme = storedTheme || 'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
@@ -29,7 +29,7 @@ function initTheme() {
       const activeTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = activeTheme === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('shreya_theme', newTheme);
+      localStorage.setItem('shreya_theme_v2', newTheme);
       updateThemeIcon(newTheme);
       showToast(`Switched to ${newTheme} mode`);
     });
