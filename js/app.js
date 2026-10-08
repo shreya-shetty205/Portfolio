@@ -11,14 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectModals();
   initContactForm();
   syncConfigurableLinks();
+  initEffects();
 });
 
 /* ==========================================================================
    1. Theme Controller (Dark / Light Mode)
    ========================================================================== */
+function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+
 function initTheme() {
   const themeToggleBtn = document.getElementById('themeToggle');
-  const storedTheme = localStorage.getItem('shreya_theme_v2');
+  const storedTheme = safeGet('shreya_theme_v4');
   
   const currentTheme = storedTheme || 'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
@@ -29,7 +33,7 @@ function initTheme() {
       const activeTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = activeTheme === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('shreya_theme_v2', newTheme);
+      safeSet('shreya_theme_v4', newTheme);
       updateThemeIcon(newTheme);
       showToast(`Switched to ${newTheme} mode`);
     });
@@ -253,11 +257,15 @@ function initContactForm() {
       }
 
       const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-      const body = encodeURIComponent(`Hi Shreya,\n\n${message}\n\nFrom: ${name} (${email})`);
-      const mailtoLink = `mailto:shreyashetty205@gmail.com?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent(`Hi Shreya,
 
-      showToast('Opening your email client...');
-      window.location.href = mailtoLink;
+${message}
+
+From: ${name} (${email})`);
+      const composeLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shreyashetty205@gmail.com&su=${subject}&body=${body}`;
+
+      showToast('Opening Gmail...');
+      window.open(composeLink, '_blank', 'noopener');
       form.reset();
     });
   }
@@ -297,4 +305,63 @@ function escapeHtml(str) {
   return str.replace(/[&<>'"]/g, 
     tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
   );
+}
+
+/* ==========================================================================
+   8. Visual Effects (progress bar, reveal, counters, card spotlight)
+   ========================================================================== */
+function initEffects() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll progress + navbar state
+  const bar = document.getElementById('scrollProgress');
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal
+  const revealSel = '.section-header, .about-text, .focus-card, .skill-card, .tl-item, .project-card, .cert-flow, .gh-banner, .list-card, .edu-card, .contact-shell, .col-title';
+  const items = document.querySelectorAll(revealSel);
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    items.forEach(el => {
+      const sibs = el.parentElement ? Array.from(el.parentElement.children).filter(n => n.matches(revealSel)) : [];
+      el.style.setProperty('--d', Math.min(sibs.indexOf(el), 5) * 70 + 'ms');
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+
+  // Count-up stats (final values are already in the HTML for no-JS / reduced motion)
+  const counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const run = (el) => {
+      const target = parseFloat(el.dataset.count), dec = +el.dataset.decimals || 0, suf = el.dataset.suffix || '';
+      const start = performance.now(), dur = 1300;
+      const step = (now) => {
+        const p = Math.min((now - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = (target * eased).toFixed(dec) + (p === 1 ? suf : '');
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { run(e.target); co.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(el => { el.textContent = (0).toFixed(+el.dataset.decimals || 0); co.observe(el); });
+  }
+
+  // Cursor spotlight on glass cards
+  document.addEventListener('pointermove', (e) => {
+    const card = e.target.closest && e.target.closest('.glass-card');
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
 }

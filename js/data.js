@@ -8,11 +8,11 @@
 // Centralized Social & Resume Configuration
 const LINKEDIN_URL = "https://www.linkedin.com/in/shreya-shetty24/";
 const GITHUB_URL = "https://github.com/shreya-shetty205/";
-const RESUME_FILE_PATH = "assets/SHREYA_SHETTY_Resume(5).pdf";
-const RESUME_FILENAME = "SHREYA_SHETTY_Resume(5).pdf";
+const RESUME_FILE_PATH = "assets/Shreya_Shetty_Resume.pdf";
+const RESUME_FILENAME = "Shreya_Shetty_Resume.pdf";
 
 // Centralized Project Screenshot / Image References
-const microdegreeArenaImage = "assets/microdegree_arena.jpg";
+const microdegreeArenaImage = "assets/microdegree_arena_dashboard.png";
 const dietaryHealthImage = "assets/dietary_health.jpg";
 const networkAnomalyImage = "assets/network_anomaly.jpg";
 
@@ -32,12 +32,12 @@ const portfolioData = {
   profile: {
     name: "Shreya Shetty",
     titles: [
-      "Software Engineer",
+      "Software Developer",
+      "AI Engineer",
       "Full-Stack Developer",
-      "QA & API Testing Specialist",
-      "AI Engineer"
+      "QA & API Testing"
     ],
-    primaryTitle: "Software Engineer",
+    primaryTitle: "Software Developer & AI Engineer",
     summary: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration. Skilled in Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS. Experienced in developing application workflows, debugging, API testing, and collaborating on production projects.",
     heroIntro: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration across Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS.",
     aboutIntro: "Software Engineer with 8 months of hands-on experience in web application development, testing, and API integration. Skilled in Python, JavaScript, React.js, Node.js, MySQL, MongoDB, Supabase, REST APIs, Postman, and AWS. Experienced in developing application workflows, debugging, API testing, and collaborating on production projects.",

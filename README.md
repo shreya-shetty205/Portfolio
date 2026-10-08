@@ -1,6 +1,6 @@
 # Shreya Shetty - Engineering Portfolio
 
-> Software Engineer | AI Engineer | QA & Testing Specialist | Full-Stack Developer
+> Software Developer & AI Engineer | Full-Stack | QA & Testing
 
 A modern, responsive personal portfolio website showcasing software development projects, machine learning research, quality assurance workflows, skills, and academic achievements.
 
@@ -18,7 +18,7 @@ A modern, responsive personal portfolio website showcasing software development 
 ```
 shreya-portfolio/
 ├── assets/
-│   ├── SHREYA_SHETTY_Resume(5).pdf
+│   ├── Shreya_Shetty_Resume.pdf
 │   ├── microdegree_arena.jpg
 │   ├── dietary_health.jpg
 │   └── network_anomaly.jpg
